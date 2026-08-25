@@ -31,7 +31,12 @@ get fun `test get subwallet id`() {
     expect(wallet.getSubwalletId()).toEqual(expectedSubwalletId);
 }
 
+get fun `test get flagX defaults to false`() {
+    val (wallet, _) = deployWallet(makeStorage());
+    expect(wallet.flagX()).toEqual(false);
+}
+
 get fun `test get revision of newly deployed is last known`() {
     val (wallet, _) = deployWallet(makeStorage());
-    expect(wallet.revision()).toEqual(Revision.Rev00_Initial);
+    expect(wallet.revision()).toEqual(Revision.Rev01_AddFlagX);
 }

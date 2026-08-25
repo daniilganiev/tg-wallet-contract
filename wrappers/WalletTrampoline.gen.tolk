@@ -11,7 +11,6 @@ import "@contracts/WalletTg/messages"
 import "@contracts/WalletTg/revisions"
 import "@contracts/WalletTg/storage"
 
-/// Storage `Storage` is defined in `@contracts/WalletTg/storage`
 struct WalletTrampoline {
     address: address
     stateInit: ContractState? = null
@@ -20,7 +19,7 @@ struct WalletTrampoline {
 
 /// Creates a contract wrapper instance from the storage data
 fun WalletTrampoline.fromStorage(
-    storage: Storage,
+    storage: Storage | UnionOfOldStorages,
     toShard: AddressShardingOptions? = null,
     workchain: int8 = BASECHAIN,
 ): WalletTrampoline {
@@ -111,4 +110,8 @@ fun WalletTrampoline.getSubwalletId(self): uint32 {
 
 fun WalletTrampoline.getPublicKey(self): uint256 {
     return net.runGetMethod(self.address, "get_public_key");
+}
+
+fun WalletTrampoline.flagX(self): bool {
+    return net.runGetMethod(self.address, "flag_x");
 }

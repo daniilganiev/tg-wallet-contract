@@ -113,3 +113,17 @@ struct (0xFBBA99C8) ChangePublicKeyRequestE {
     /// Second, by the new key (rotation proof).
     rotationSignature: Cell<bits512>
 }
+
+struct (0x64dfc2c0) AssignFlagXRequestI {
+    /// Header is against replay attacks.
+    header: SeqnoHeader
+    /// A new value for storage `flagX`.
+    flagX: bool
+}
+
+struct (0x64dfc2c1) AssignFlagXRequestE {
+    /// Header is against replay attacks.
+    header: SeqnoHeader
+    /// A new value for storage `flagX`.
+    flagX: bool
+}

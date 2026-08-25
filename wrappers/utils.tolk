@@ -15,6 +15,7 @@ const CONFIG_KEY_OF_BYTECODE = -123 // the same as in `WalletTrampoline.fif`
 
 const ALL_REVISIONS_BOC_PATHS = array<string> [
     "contracts/revisions-boc/WalletTg-rev00.boc",
+    "contracts/revisions-boc/WalletTg-rev01.boc",
     // appended manually when starting developing the next revision
 ]
 
@@ -180,11 +181,46 @@ fun prepareChangePublicKeyE(
     return { signature, request };
 }
 
+fun prepareAssignFlagXI(
+    keyPair: KeyPair,
+    header: SeqnoHeader,
+    flagX: bool,
+): SignedRequest<AllowedInternalMsg> {
+    val request = AssignFlagXRequestI { header, flagX };
+    val signature = crypto.sign(keyPair.privateKey, request.toCell()) as bits512;
+    return { signature, request };
+}
+
+fun prepareAssignFlagXE(
+    keyPair: KeyPair,
+    header: SeqnoHeader,
+    flagX: bool,
+): SignedRequest<AllowedExternalMsg> {
+    val request = AssignFlagXRequestE { header, flagX };
+    val signature = crypto.sign(keyPair.privateKey, request.toCell()) as bits512;
+    return { signature, request };
+}
+
 fun makeTransferToSend(dest: address, value: coins): MessageToSend {
     val innerMsg = createMessage({
         bounce: false,
         value,
         dest,
+    });
+    return { sendMode: SEND_MODE_PAY_FEES_SEPARATELY | SEND_MODE_IGNORE_ERRORS, messageCell: innerMsg.messageCell };
+}
+
+/// Wrap a prepared internal signed request as one item in a SendMessages request.
+fun makeSignedInternalRequestToSend<TInternalMsg>(
+    dest: address,
+    value: coins,
+    prepared: SignedRequest<TInternalMsg>,
+): MessageToSend {
+    val innerMsg = createMessage({
+        bounce: false,
+        value,
+        dest,
+        body: prepared,
     });
     return { sendMode: SEND_MODE_PAY_FEES_SEPARATELY | SEND_MODE_IGNORE_ERRORS, messageCell: innerMsg.messageCell };
 }
@@ -211,6 +247,27 @@ fun deployWallet(storage: Storage): (WalletTrampoline, Treasury) {
 
     expect(deployResult).toHaveSuccessfulDeploy({ to: wallet.address });
     return (wallet, deployer);
+}
+
+/// Deploy a trampoline with rev00 C4. Caller controls which WalletTg revision is in config.
+fun deployRev00Wallet(
+    owner: KeyPair,
+    deployer: Treasury,
+    traceName: string,
+    deployValue: coins = ton("5"),
+): WalletTrampoline {
+    val wallet = WalletTrampoline.fromStorage(OldStorage_00 {
+        seqno: 0,
+        subwalletId: DEFAULT_SUBWALLET_ID,
+        publicKey: owner.publicKey,
+    });
+    val deployTrace = wallet.deploy(deployer.address, { value: deployValue, bounce: false });
+    deployTrace.giveName(traceName);
+    expect(deployTrace).toHaveSuccessfulDeploy({
+        from: deployer.address,
+        to: wallet.address,
+    });
+    return wallet;
 }
 
 fun deployWalletWithKey(keyPair: KeyPair): (WalletTrampoline, Treasury) {

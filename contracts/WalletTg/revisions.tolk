@@ -3,6 +3,7 @@
 /// Read `MIGRATION.md`.
 enum Revision : uint8 {
     Rev00_Initial = 0,
+    Rev01_AddFlagX = 1,
 }
 
-const LAST_REVISION = Revision.Rev00_Initial
+const LAST_REVISION = Revision.Rev01_AddFlagX

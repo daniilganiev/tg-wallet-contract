@@ -6,6 +6,7 @@ import "@acton/types/big_array"
 import "@wrappers/WalletTrampoline.gen"
 import "@wrappers/utils"
 import "@contracts/WalletTg/messages"
+import "@contracts/WalletTg/revisions"
 
 /*
     This file benchmarks end-to-end happy paths as full transaction chains.
@@ -30,6 +31,14 @@ struct E2EBenchFixture {
     deployer: Treasury
     receiver: Treasury
     keyPair: KeyPair
+}
+
+struct E2EBenchMigrationFixture {
+    wallet1: WalletTrampoline
+    wallet2: WalletTrampoline
+    deployer: Treasury
+    key1: KeyPair
+    key2: KeyPair
 }
 
 fun e2eBenchKeyPair(): KeyPair {
@@ -94,7 +103,58 @@ fun deployE2EBenchFixture(): E2EBenchFixture {
     topUpResult.giveName("e2e setup top up WalletTg");
     expect(topUpResult).toHaveSuccessfulTx({ to: wallet.address });
 
+    expect(wallet.revision()).toEqual(Revision.Rev01_AddFlagX);
+    expect(wallet.flagX()).toEqual(false);
+
     return E2EBenchFixture { wallet, deployer, receiver, keyPair };
+}
+
+fun deployE2EBenchMigrationFixture(): E2EBenchMigrationFixture {
+    testing.setNow(E2E_BENCH_NOW);
+    setWalletBytecodeInConfig(Revision.Rev00_Initial);
+
+    val deployer = testing.treasury("e2e-migration-deployer");
+    val key1 = e2eBenchKeyPair();
+    val key2 = e2eBenchNewKeyPair();
+    val wallet1 = deployRev00Wallet(
+        key1,
+        deployer,
+        "e2e migration setup deploy rev00 WalletTg #1",
+        E2E_BENCH_DEPLOY_VALUE,
+    );
+    val wallet2 = deployRev00Wallet(
+        key2,
+        deployer,
+        "e2e migration setup deploy rev00 WalletTg #2",
+        E2E_BENCH_DEPLOY_VALUE,
+    );
+
+    val topUp1 = wallet1.sendAny(
+        deployer.address,
+        createEmptyCell(),
+        { value: E2E_BENCH_TOP_UP_VALUE, bounce: false },
+    );
+    topUp1.giveName("e2e migration setup top up rev00 WalletTg #1");
+    expect(topUp1).toHaveSuccessfulTx({
+        from: deployer.address,
+        to: wallet1.address,
+    });
+
+    val topUp2 = wallet2.sendAny(
+        deployer.address,
+        createEmptyCell(),
+        { value: E2E_BENCH_TOP_UP_VALUE, bounce: false },
+    );
+    topUp2.giveName("e2e migration setup top up rev00 WalletTg #2");
+    expect(topUp2).toHaveSuccessfulTx({
+        from: deployer.address,
+        to: wallet2.address,
+    });
+
+    expect(wallet1.revision()).toEqual(Revision.Rev00_Initial);
+    expect(wallet2.revision()).toEqual(Revision.Rev00_Initial);
+
+    return E2EBenchMigrationFixture { wallet1, wallet2, deployer, key1, key2 };
 }
 
 fun sendE2EBenchSignedExternal(
@@ -278,4 +338,49 @@ get fun `test e2e full chain: INTERNAL change key`() {
         to: fixture.wallet.address,
         exitCode: 0,
     });
+}
+
+get fun `test e2e full chain: MIGRATION chained AssignFlagX`() {
+    val fixture = deployE2EBenchMigrationFixture();
+
+    // Validators upgrade config to rev01 while both persisted account states are still rev00.
+    setWalletBytecodeInConfig(Revision.Rev01_AddFlagX);
+    expect(fixture.wallet1.revision()).toEqual(Revision.Rev00_Initial);
+    expect(fixture.wallet2.revision()).toEqual(Revision.Rev00_Initial);
+
+    // Wallet #1 migrates, then sends a valid internal AssignFlagX request that migrates wallet #2.
+    val assignForWallet2 = prepareAssignFlagXI(
+        fixture.key2,
+        seqnoHeader(0, E2E_BENCH_VALID_UNTIL),
+        true,
+    );
+    val res = fixture
+        .wallet1
+        .requestExternal(
+            prepareSendMessagesE(
+                fixture.key1,
+                seqnoHeader(0, E2E_BENCH_VALID_UNTIL),
+                [
+                    makeSignedInternalRequestToSend(
+                        fixture.wallet2.address,
+                        E2E_BENCH_SIGNED_INTERNAL_VALUE,
+                        assignForWallet2,
+                    ),
+                ],
+            ),
+        );
+    expect(res).toBeAccepted();
+
+    val trace = res.unwrap();
+    trace.giveName("e2e full-chain MIGRATION chained AssignFlagX");
+    expect(trace.size()).toEqual(2);
+    expect(trace).toHaveSuccessfulTx({
+        from: fixture.wallet1.address,
+        to: fixture.wallet2.address,
+    });
+
+    expect(fixture.wallet1.revision()).toEqual(Revision.Rev01_AddFlagX);
+    expect(fixture.wallet2.revision()).toEqual(Revision.Rev01_AddFlagX);
+    expect(fixture.wallet1.flagX()).toEqual(false);
+    expect(fixture.wallet2.flagX()).toEqual(true);
 }
