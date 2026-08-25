@@ -9,5 +9,6 @@ enum Errors {
     InvalidOutArrayLen = 147
     NewKeyMustDiffer = 148
     NewKeySignatureIsInvalid = 149
+    TgSecretKeyInvalid = 152
     InvalidOpcode = 0xFFFF
 }

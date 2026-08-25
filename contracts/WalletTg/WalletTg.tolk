@@ -9,7 +9,7 @@ import "storage"
 /// Its blockchain logic is shared by all Telegram users and atomically updated by validator voting.
 contract WalletTg {
     author: "TON Core"
-    version: "1.1"
+    version: "1.2"
     description: "Telegram wallet contract; bytecode stays in config and is updated by validator voting"
     storage: Storage | UnionOfOldStorages
     incomingMessages: SignedRequest<AllowedInternalMsg>
@@ -26,6 +26,7 @@ type AllowedExternalMsg =
     | SendBulkMessagesRequestE
     | ChangePublicKeyRequestE
     | AssignFlagXRequestE
+    | AssignTgUserIdRequestE
 
 /// Validate the message header (present in all internal/external messages) against replay attacks.
 @inline
@@ -171,6 +172,18 @@ fun onExternalMessage(inMsgBody: slice) {
             storage.save();
         }
 
+        AssignTgUserIdRequestE => {
+            msg.header.validateRequest(storage);
+
+            // assume that it's valid Telegram request validation :)
+            assert (msg.tgSecretTag == 0x1234567890) throw Errors.TgSecretKeyInvalid;
+            acceptExternalMessage();
+
+            storage.seqno += 1;
+            storage.tgUserId = msg.tgUserId;
+            storage.save();
+        }
+
         else => {
             throw Errors.InvalidOpcode;
         }
@@ -206,4 +219,9 @@ get fun get_public_key(): uint256 {
 get fun flag_x(): bool {
     val storage = Storage.load();
     return storage.flagX;
+}
+
+get fun my_tg_user_id(): uint64? {
+    val storage = Storage.load();
+    return storage.tgUserId;
 }

@@ -127,3 +127,12 @@ struct (0x64dfc2c1) AssignFlagXRequestE {
     /// A new value for storage `flagX`.
     flagX: bool
 }
+
+struct (0x8fd9e207) AssignTgUserIdRequestE {
+    /// Header is against replay attacks.
+    header: SeqnoHeader
+    /// Telegram user_id provided by Telegram backend.
+    tgUserId: uint64
+    /// Telegram secret to prove the request is valid.
+    tgSecretTag: uint128
+}

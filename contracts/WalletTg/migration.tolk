@@ -9,6 +9,12 @@ fun convertOldStorageToLatest(): Storage {
             subwalletId: old.subwalletId,
             publicKey: old.publicKey,
         },
+        OldStorage_01 => Storage {
+            seqno: old.seqno,
+            subwalletId: old.subwalletId,
+            publicKey: old.publicKey,
+            flagX: old.flagX,   // todo demo: comment and see failing tests
+        },
         else => {
             // can happen only if c4 is corrupted;
             // may be emulated by tests, can't happen in production

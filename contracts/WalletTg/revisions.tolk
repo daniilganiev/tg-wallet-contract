@@ -4,6 +4,7 @@
 enum Revision : uint8 {
     Rev00_Initial = 0,
     Rev01_AddFlagX = 1,
+    Rev02_TgUserId = 2,
 }
 
-const LAST_REVISION = Revision.Rev01_AddFlagX
+const LAST_REVISION = Revision.Rev02_TgUserId

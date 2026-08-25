@@ -36,7 +36,12 @@ get fun `test get flagX defaults to false`() {
     expect(wallet.flagX()).toEqual(false);
 }
 
+get fun `test get Telegram user id defaults to null`() {
+    val (wallet, _) = deployWallet(makeStorage());
+    expect(wallet.myTgUserId()).toBeNull();
+}
+
 get fun `test get revision of newly deployed is last known`() {
     val (wallet, _) = deployWallet(makeStorage());
-    expect(wallet.revision()).toEqual(Revision.Rev01_AddFlagX);
+    expect(wallet.revision()).toEqual(Revision.Rev02_TgUserId);
 }

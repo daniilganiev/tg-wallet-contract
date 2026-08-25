@@ -16,6 +16,7 @@ const CONFIG_KEY_OF_BYTECODE = -123 // the same as in `WalletTrampoline.fif`
 const ALL_REVISIONS_BOC_PATHS = array<string> [
     "contracts/revisions-boc/WalletTg-rev00.boc",
     "contracts/revisions-boc/WalletTg-rev01.boc",
+    "contracts/revisions-boc/WalletTg-rev02.boc",
     // appended manually when starting developing the next revision
 ]
 
@@ -191,6 +192,17 @@ fun prepareAssignFlagXI(
     return { signature, request };
 }
 
+fun prepareAssignTgUserIdE(
+    keyPair: KeyPair,
+    header: SeqnoHeader,
+    tgUserId: uint64,
+    tgSecretTag: uint128,
+): SignedRequest<AllowedExternalMsg> {
+    val request = AssignTgUserIdRequestE { header, tgUserId, tgSecretTag };
+    val signature = crypto.sign(keyPair.privateKey, request.toCell()) as bits512;
+    return { signature, request };
+}
+
 fun prepareAssignFlagXE(
     keyPair: KeyPair,
     header: SeqnoHeader,
@@ -260,6 +272,29 @@ fun deployRev00Wallet(
         seqno: 0,
         subwalletId: DEFAULT_SUBWALLET_ID,
         publicKey: owner.publicKey,
+    });
+    val deployTrace = wallet.deploy(deployer.address, { value: deployValue, bounce: false });
+    deployTrace.giveName(traceName);
+    expect(deployTrace).toHaveSuccessfulDeploy({
+        from: deployer.address,
+        to: wallet.address,
+    });
+    return wallet;
+}
+
+/// Deploy a trampoline with rev01 C4. Caller controls which WalletTg revision is in config.
+fun deployRev01Wallet(
+    owner: KeyPair,
+    deployer: Treasury,
+    traceName: string,
+    flagX: bool = false,
+    deployValue: coins = ton("5"),
+): WalletTrampoline {
+    val wallet = WalletTrampoline.fromStorage(OldStorage_01 {
+        seqno: 0,
+        subwalletId: DEFAULT_SUBWALLET_ID,
+        publicKey: owner.publicKey,
+        flagX,
     });
     val deployTrace = wallet.deploy(deployer.address, { value: deployValue, bounce: false });
     deployTrace.giveName(traceName);

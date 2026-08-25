@@ -1,82 +1,64 @@
 {
-  "timestamp": 1787836668,
+  "timestamp": 1787836683,
   "opcodes": {
-    "0x9d94413d": {
-      "min_gas": 184172,
-      "max_gas": 184172,
-      "avg_gas": 184172,
-      "samples": 1,
-      "all_values": [
-        184172
-      ]
-    },
     "0x2062d3bd": {
-      "min_gas": 5163,
-      "max_gas": 5163,
-      "avg_gas": 5163,
+      "min_gas": 5421,
+      "max_gas": 5421,
+      "avg_gas": 5421,
       "samples": 1,
       "all_values": [
-        5163
-      ]
-    },
-    "0x1317bd9c": {
-      "min_gas": 7287,
-      "max_gas": 7287,
-      "avg_gas": 7287,
-      "samples": 1,
-      "all_values": [
-        7287
-      ]
-    },
-    "0x4d58d59b": {
-      "min_gas": 26403,
-      "max_gas": 26403,
-      "avg_gas": 26403,
-      "samples": 1,
-      "all_values": [
-        26403
-      ]
-    },
-    "0x7198d8e4": {
-      "min_gas": 3835,
-      "max_gas": 3835,
-      "avg_gas": 3835,
-      "samples": 1,
-      "all_values": [
-        3835
+        5421
       ]
     },
     "0x3a36c02b": {
-      "min_gas": 26403,
-      "max_gas": 26403,
-      "avg_gas": 26403,
+      "min_gas": 26661,
+      "max_gas": 26661,
+      "avg_gas": 26661,
       "samples": 1,
       "all_values": [
-        26403
+        26661
+      ]
+    },
+    "0x4d58d59b": {
+      "min_gas": 26661,
+      "max_gas": 26661,
+      "avg_gas": 26661,
+      "samples": 1,
+      "all_values": [
+        26661
+      ]
+    },
+    "0x7198d8e4": {
+      "min_gas": 4185,
+      "max_gas": 4185,
+      "avg_gas": 4185,
+      "samples": 1,
+      "all_values": [
+        4185
+      ]
+    },
+    "0x1317bd9c": {
+      "min_gas": 7545,
+      "max_gas": 7545,
+      "avg_gas": 7545,
+      "samples": 1,
+      "all_values": [
+        7545
+      ]
+    },
+    "0x9d94413d": {
+      "min_gas": 184430,
+      "max_gas": 184430,
+      "avg_gas": 184430,
+      "samples": 1,
+      "all_values": [
+        184430
       ]
     }
   },
   "trace_chains": {
-    "test send gas: EXTERNAL send 255 messages::trace#1": {
-      "test_name": "test send gas: EXTERNAL send 255 messages",
-      "trace_name": "Trace 1",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: EXTERNAL send 255 messages::trace#2": {
-      "test_name": "test send gas: EXTERNAL send 255 messages",
-      "trace_name": "Trace 2",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: EXTERNAL send 32 messages::trace#4": {
-      "test_name": "test send gas: EXTERNAL send 32 messages",
+    "test send gas: EXTERNAL malformed message 30 of 32::trace#4": {
+      "test_name": "test send gas: EXTERNAL malformed message 30 of 32",
       "trace_name": "send gas bench setup top up",
       "tx_count": 1,
       "total_gas_used": 244,
@@ -84,68 +66,14 @@
       "total_forward_fees": 44446,
       "total_fees": 16268
     },
-    "test send gas: EXTERNAL send 5 messages::trace#5": {
-      "test_name": "test send gas: EXTERNAL send 5 messages",
-      "trace_name": "send gas EXTERNAL send 5",
+    "test send gas: EXTERNAL send 32 messages::trace#5": {
+      "test_name": "test send gas: EXTERNAL send 32 messages",
+      "trace_name": "send gas EXTERNAL send 32",
       "tx_count": 1,
-      "total_gas_used": 7601,
-      "total_gas_fees": 506734,
+      "total_gas_used": 29210,
+      "total_gas_fees": 1947334,
       "total_forward_fees": 0,
-      "total_fees": 978577
-    },
-    "test send gas: EXTERNAL send 1 message::trace#5": {
-      "test_name": "test send gas: EXTERNAL send 1 message",
-      "trace_name": "send gas EXTERNAL send 1",
-      "tx_count": 1,
-      "total_gas_used": 3656,
-      "total_gas_fees": 243734,
-      "total_forward_fees": 0,
-      "total_fees": 428090
-    },
-    "test send gas: INTERNAL send 5 messages::trace#5": {
-      "test_name": "test send gas: INTERNAL send 5 messages",
-      "trace_name": "send gas INTERNAL send 5",
-      "tx_count": 1,
-      "total_gas_used": 7287,
-      "total_gas_fees": 485801,
-      "total_forward_fees": 230714,
-      "total_fees": 611576
-    },
-    "test send gas: EXTERNAL send 255 messages::trace#5": {
-      "test_name": "test send gas: EXTERNAL send 255 messages",
-      "trace_name": "send gas EXTERNAL send 255",
-      "tx_count": 1,
-      "total_gas_used": 206486,
-      "total_gas_fees": 13765735,
-      "total_forward_fees": 0,
-      "total_fees": 31885195
-    },
-    "test send gas: INTERNAL send 32 messages::trace#2": {
-      "test_name": "test send gas: INTERNAL send 32 messages",
-      "trace_name": "Trace 2",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: EXTERNAL send 1 message::trace#2": {
-      "test_name": "test send gas: EXTERNAL send 1 message",
-      "trace_name": "Trace 2",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: INTERNAL send 1 message::trace#1": {
-      "test_name": "test send gas: INTERNAL send 1 message",
-      "trace_name": "Trace 1",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
+      "total_fees": 4325362
     },
     "test send gas: INTERNAL send 255 messages::trace#1": {
       "test_name": "test send gas: INTERNAL send 255 messages",
@@ -156,104 +84,23 @@
       "total_forward_fees": 95202,
       "total_fees": 20601
     },
-    "test send gas: EXTERNAL send 5 messages::trace#3": {
-      "test_name": "test send gas: EXTERNAL send 5 messages",
-      "trace_name": "send gas bench setup deploy",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
-      "total_fees": 16268
-    },
-    "test send gas: INTERNAL malformed message 30 of 32::trace#5": {
-      "test_name": "test send gas: INTERNAL malformed message 30 of 32",
-      "trace_name": "send gas INTERNAL malformed message 30 of 32",
-      "tx_count": 1,
-      "total_gas_used": 26403,
-      "total_gas_fees": 1760201,
-      "total_forward_fees": 1024720,
-      "total_fees": 2540006
-    },
-    "test send gas: INTERNAL send 2 messages::trace#2": {
+    "test send gas: INTERNAL send 2 messages::trace#3": {
       "test_name": "test send gas: INTERNAL send 2 messages",
-      "trace_name": "Trace 2",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: INTERNAL send 1 message::trace#5": {
-      "test_name": "test send gas: INTERNAL send 1 message",
-      "trace_name": "send gas INTERNAL send 1",
-      "tx_count": 1,
-      "total_gas_used": 3835,
-      "total_gas_fees": 255668,
-      "total_forward_fees": 106135,
-      "total_fees": 280823
-    },
-    "test send gas: INTERNAL send 255 messages::trace#2": {
-      "test_name": "test send gas: INTERNAL send 255 messages",
-      "trace_name": "Trace 2",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: EXTERNAL malformed message 30 of 32::trace#1": {
-      "test_name": "test send gas: EXTERNAL malformed message 30 of 32",
-      "trace_name": "Trace 1",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: EXTERNAL send 255 messages::trace#3": {
-      "test_name": "test send gas: EXTERNAL send 255 messages",
       "trace_name": "send gas bench setup deploy",
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 76535,
       "total_fees": 16268
     },
-    "test send gas: EXTERNAL send 32 messages::trace#2": {
-      "test_name": "test send gas: EXTERNAL send 32 messages",
-      "trace_name": "Trace 2",
+    "test send gas: INTERNAL send 5 messages::trace#5": {
+      "test_name": "test send gas: INTERNAL send 5 messages",
+      "trace_name": "send gas INTERNAL send 5",
       "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: EXTERNAL send 1 message::trace#1": {
-      "test_name": "test send gas: EXTERNAL send 1 message",
-      "trace_name": "Trace 1",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: INTERNAL send 1 message::trace#4": {
-      "test_name": "test send gas: INTERNAL send 1 message",
-      "trace_name": "send gas bench setup top up",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 44446,
-      "total_fees": 16268
-    },
-    "test send gas: INTERNAL send 32 messages::trace#4": {
-      "test_name": "test send gas: INTERNAL send 32 messages",
-      "trace_name": "send gas bench setup top up",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 44446,
-      "total_fees": 16268
+      "total_gas_used": 7545,
+      "total_gas_fees": 503001,
+      "total_forward_fees": 230714,
+      "total_fees": 628776
     },
     "test send gas: EXTERNAL send 32 messages::trace#3": {
       "test_name": "test send gas: EXTERNAL send 32 messages",
@@ -261,119 +108,11 @@
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 76535,
       "total_fees": 16268
     },
-    "test send gas: INTERNAL send 255 messages::trace#4": {
-      "test_name": "test send gas: INTERNAL send 255 messages",
-      "trace_name": "send gas bench setup top up",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 44446,
-      "total_fees": 16268
-    },
-    "test send gas: INTERNAL send 32 messages::trace#5": {
-      "test_name": "test send gas: INTERNAL send 32 messages",
-      "trace_name": "send gas INTERNAL send 32",
-      "tx_count": 1,
-      "total_gas_used": 26403,
-      "total_gas_fees": 1760201,
-      "total_forward_fees": 1048721,
-      "total_fees": 2565161
-    },
-    "test send gas: EXTERNAL send 2 messages::trace#2": {
+    "test send gas: EXTERNAL send 2 messages::trace#4": {
       "test_name": "test send gas: EXTERNAL send 2 messages",
-      "trace_name": "Trace 2",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: EXTERNAL send 5 messages::trace#2": {
-      "test_name": "test send gas: EXTERNAL send 5 messages",
-      "trace_name": "Trace 2",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: INTERNAL send 255 messages::trace#3": {
-      "test_name": "test send gas: INTERNAL send 255 messages",
-      "trace_name": "send gas bench setup deploy",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
-      "total_fees": 16268
-    },
-    "test send gas: INTERNAL malformed message 30 of 32::trace#2": {
-      "test_name": "test send gas: INTERNAL malformed message 30 of 32",
-      "trace_name": "Trace 2",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: INTERNAL send 5 messages::trace#3": {
-      "test_name": "test send gas: INTERNAL send 5 messages",
-      "trace_name": "send gas bench setup deploy",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
-      "total_fees": 16268
-    },
-    "test send gas: INTERNAL send 5 messages::trace#2": {
-      "test_name": "test send gas: INTERNAL send 5 messages",
-      "trace_name": "Trace 2",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: INTERNAL send 1 message::trace#3": {
-      "test_name": "test send gas: INTERNAL send 1 message",
-      "trace_name": "send gas bench setup deploy",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
-      "total_fees": 16268
-    },
-    "test send gas: EXTERNAL malformed message 30 of 32::trace#2": {
-      "test_name": "test send gas: EXTERNAL malformed message 30 of 32",
-      "trace_name": "Trace 2",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: EXTERNAL malformed message 30 of 32::trace#5": {
-      "test_name": "test send gas: EXTERNAL malformed message 30 of 32",
-      "trace_name": "send gas EXTERNAL malformed message 30 of 32",
-      "tx_count": 1,
-      "total_gas_used": 29093,
-      "total_gas_fees": 1939534,
-      "total_forward_fees": 0,
-      "total_fees": 4256407
-    },
-    "test send gas: EXTERNAL send 1 message::trace#3": {
-      "test_name": "test send gas: EXTERNAL send 1 message",
-      "trace_name": "send gas bench setup deploy",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
-      "total_fees": 16268
-    },
-    "test send gas: EXTERNAL send 1 message::trace#4": {
-      "test_name": "test send gas: EXTERNAL send 1 message",
       "trace_name": "send gas bench setup top up",
       "tx_count": 1,
       "total_gas_used": 244,
@@ -387,11 +126,227 @@
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 76535,
       "total_fees": 16268
     },
-    "test send gas: INTERNAL malformed message 30 of 32::trace#1": {
+    "test send gas: INTERNAL malformed message 30 of 32::trace#5": {
       "test_name": "test send gas: INTERNAL malformed message 30 of 32",
+      "trace_name": "send gas INTERNAL malformed message 30 of 32",
+      "tx_count": 1,
+      "total_gas_used": 26661,
+      "total_gas_fees": 1777401,
+      "total_forward_fees": 1024720,
+      "total_fees": 2557206
+    },
+    "test send gas: INTERNAL send 1 message::trace#5": {
+      "test_name": "test send gas: INTERNAL send 1 message",
+      "trace_name": "send gas INTERNAL send 1",
+      "tx_count": 1,
+      "total_gas_used": 4185,
+      "total_gas_fees": 279001,
+      "total_forward_fees": 106135,
+      "total_fees": 304156
+    },
+    "test send gas: INTERNAL send 32 messages::trace#5": {
+      "test_name": "test send gas: INTERNAL send 32 messages",
+      "trace_name": "send gas INTERNAL send 32",
+      "tx_count": 1,
+      "total_gas_used": 26661,
+      "total_gas_fees": 1777401,
+      "total_forward_fees": 1048721,
+      "total_fees": 2582361
+    },
+    "test send gas: INTERNAL malformed message 30 of 32::trace#2": {
+      "test_name": "test send gas: INTERNAL malformed message 30 of 32",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: INTERNAL send 255 messages::trace#2": {
+      "test_name": "test send gas: INTERNAL send 255 messages",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: EXTERNAL send 255 messages::trace#5": {
+      "test_name": "test send gas: EXTERNAL send 255 messages",
+      "trace_name": "send gas EXTERNAL send 255",
+      "tx_count": 1,
+      "total_gas_used": 206603,
+      "total_gas_fees": 13773535,
+      "total_forward_fees": 0,
+      "total_fees": 31892995
+    },
+    "test send gas: EXTERNAL send 1 message::trace#1": {
+      "test_name": "test send gas: EXTERNAL send 1 message",
+      "trace_name": "Trace 1",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: EXTERNAL send 5 messages::trace#3": {
+      "test_name": "test send gas: EXTERNAL send 5 messages",
+      "trace_name": "send gas bench setup deploy",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 76535,
+      "total_fees": 16268
+    },
+    "test send gas: EXTERNAL send 2 messages::trace#1": {
+      "test_name": "test send gas: EXTERNAL send 2 messages",
+      "trace_name": "Trace 1",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: EXTERNAL send 2 messages::trace#5": {
+      "test_name": "test send gas: EXTERNAL send 2 messages",
+      "trace_name": "send gas EXTERNAL send 2",
+      "tx_count": 1,
+      "total_gas_used": 5330,
+      "total_gas_fees": 355334,
+      "total_forward_fees": 0,
+      "total_fees": 615378
+    },
+    "test send gas: EXTERNAL send 1 message::trace#2": {
+      "test_name": "test send gas: EXTERNAL send 1 message",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: EXTERNAL send 255 messages::trace#3": {
+      "test_name": "test send gas: EXTERNAL send 255 messages",
+      "trace_name": "send gas bench setup deploy",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 76535,
+      "total_fees": 16268
+    },
+    "test send gas: INTERNAL send 2 messages::trace#2": {
+      "test_name": "test send gas: INTERNAL send 2 messages",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: INTERNAL send 5 messages::trace#3": {
+      "test_name": "test send gas: INTERNAL send 5 messages",
+      "trace_name": "send gas bench setup deploy",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 76535,
+      "total_fees": 16268
+    },
+    "test send gas: EXTERNAL send 1 message::trace#5": {
+      "test_name": "test send gas: EXTERNAL send 1 message",
+      "trace_name": "send gas EXTERNAL send 1",
+      "tx_count": 1,
+      "total_gas_used": 4006,
+      "total_gas_fees": 267068,
+      "total_forward_fees": 0,
+      "total_fees": 451424
+    },
+    "test send gas: EXTERNAL malformed message 30 of 32::trace#5": {
+      "test_name": "test send gas: EXTERNAL malformed message 30 of 32",
+      "trace_name": "send gas EXTERNAL malformed message 30 of 32",
+      "tx_count": 1,
+      "total_gas_used": 29210,
+      "total_gas_fees": 1947334,
+      "total_forward_fees": 0,
+      "total_fees": 4264207
+    },
+    "test send gas: INTERNAL send 255 messages::trace#4": {
+      "test_name": "test send gas: INTERNAL send 255 messages",
+      "trace_name": "send gas bench setup top up",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 44446,
+      "total_fees": 16268
+    },
+    "test send gas: INTERNAL send 5 messages::trace#2": {
+      "test_name": "test send gas: INTERNAL send 5 messages",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: EXTERNAL malformed message 30 of 32::trace#2": {
+      "test_name": "test send gas: EXTERNAL malformed message 30 of 32",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: EXTERNAL malformed message 30 of 32::trace#3": {
+      "test_name": "test send gas: EXTERNAL malformed message 30 of 32",
+      "trace_name": "send gas bench setup deploy",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 76535,
+      "total_fees": 16268
+    },
+    "test send gas: INTERNAL send 1 message::trace#1": {
+      "test_name": "test send gas: INTERNAL send 1 message",
+      "trace_name": "Trace 1",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: EXTERNAL send 1 message::trace#4": {
+      "test_name": "test send gas: EXTERNAL send 1 message",
+      "trace_name": "send gas bench setup top up",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 44446,
+      "total_fees": 16268
+    },
+    "test send gas: EXTERNAL send 255 messages::trace#1": {
+      "test_name": "test send gas: EXTERNAL send 255 messages",
+      "trace_name": "Trace 1",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: EXTERNAL send 255 messages::trace#4": {
+      "test_name": "test send gas: EXTERNAL send 255 messages",
+      "trace_name": "send gas bench setup top up",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 44446,
+      "total_fees": 16268
+    },
+    "test send gas: EXTERNAL send 5 messages::trace#1": {
+      "test_name": "test send gas: EXTERNAL send 5 messages",
       "trace_name": "Trace 1",
       "tx_count": 1,
       "total_gas_used": 309,
@@ -408,26 +363,17 @@
       "total_forward_fees": 44446,
       "total_fees": 16268
     },
-    "test send gas: EXTERNAL send 2 messages::trace#4": {
-      "test_name": "test send gas: EXTERNAL send 2 messages",
-      "trace_name": "send gas bench setup top up",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 44446,
-      "total_fees": 16268
-    },
-    "test send gas: EXTERNAL malformed message 30 of 32::trace#3": {
-      "test_name": "test send gas: EXTERNAL malformed message 30 of 32",
+    "test send gas: INTERNAL send 32 messages::trace#3": {
+      "test_name": "test send gas: INTERNAL send 32 messages",
       "trace_name": "send gas bench setup deploy",
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 76535,
       "total_fees": 16268
     },
-    "test send gas: EXTERNAL send 5 messages::trace#1": {
-      "test_name": "test send gas: EXTERNAL send 5 messages",
+    "test send gas: INTERNAL malformed message 30 of 32::trace#1": {
+      "test_name": "test send gas: INTERNAL malformed message 30 of 32",
       "trace_name": "Trace 1",
       "tx_count": 1,
       "total_gas_used": 309,
@@ -435,26 +381,17 @@
       "total_forward_fees": 95202,
       "total_fees": 20601
     },
-    "test send gas: INTERNAL send 2 messages::trace#5": {
-      "test_name": "test send gas: INTERNAL send 2 messages",
-      "trace_name": "send gas INTERNAL send 2",
-      "tx_count": 1,
-      "total_gas_used": 5163,
-      "total_gas_fees": 344201,
-      "total_forward_fees": 139824,
-      "total_fees": 394511
-    },
-    "test send gas: EXTERNAL send 255 messages::trace#4": {
-      "test_name": "test send gas: EXTERNAL send 255 messages",
-      "trace_name": "send gas bench setup top up",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 44446,
-      "total_fees": 16268
-    },
-    "test send gas: EXTERNAL send 2 messages::trace#1": {
+    "test send gas: EXTERNAL send 2 messages::trace#2": {
       "test_name": "test send gas: EXTERNAL send 2 messages",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: INTERNAL send 32 messages::trace#1": {
+      "test_name": "test send gas: INTERNAL send 32 messages",
       "trace_name": "Trace 1",
       "tx_count": 1,
       "total_gas_used": 309,
@@ -462,41 +399,41 @@
       "total_forward_fees": 95202,
       "total_fees": 20601
     },
-    "test send gas: EXTERNAL send 32 messages::trace#5": {
+    "test send gas: EXTERNAL send 32 messages::trace#2": {
       "test_name": "test send gas: EXTERNAL send 32 messages",
-      "trace_name": "send gas EXTERNAL send 32",
+      "trace_name": "Trace 2",
       "tx_count": 1,
-      "total_gas_used": 29093,
-      "total_gas_fees": 1939534,
-      "total_forward_fees": 0,
-      "total_fees": 4317562
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
     },
-    "test send gas: EXTERNAL malformed message 30 of 32::trace#4": {
-      "test_name": "test send gas: EXTERNAL malformed message 30 of 32",
-      "trace_name": "send gas bench setup top up",
+    "test send gas: INTERNAL send 255 messages::trace#5": {
+      "test_name": "test send gas: INTERNAL send 255 messages",
+      "trace_name": "send gas INTERNAL send 255",
       "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 44446,
-      "total_fees": 16268
+      "total_gas_used": 184430,
+      "total_gas_fees": 12295335,
+      "total_forward_fees": 7803350,
+      "total_fees": 18709860
     },
-    "test send gas: EXTERNAL send 2 messages::trace#3": {
-      "test_name": "test send gas: EXTERNAL send 2 messages",
+    "test send gas: INTERNAL send 5 messages::trace#1": {
+      "test_name": "test send gas: INTERNAL send 5 messages",
+      "trace_name": "Trace 1",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: EXTERNAL send 1 message::trace#3": {
+      "test_name": "test send gas: EXTERNAL send 1 message",
       "trace_name": "send gas bench setup deploy",
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 76535,
       "total_fees": 16268
-    },
-    "test send gas: EXTERNAL send 2 messages::trace#5": {
-      "test_name": "test send gas: EXTERNAL send 2 messages",
-      "trace_name": "send gas EXTERNAL send 2",
-      "tx_count": 1,
-      "total_gas_used": 5213,
-      "total_gas_fees": 347534,
-      "total_forward_fees": 0,
-      "total_fees": 607578
     },
     "test send gas: EXTERNAL send 32 messages::trace#1": {
       "test_name": "test send gas: EXTERNAL send 32 messages",
@@ -507,14 +444,41 @@
       "total_forward_fees": 95202,
       "total_fees": 20601
     },
-    "test send gas: EXTERNAL send 5 messages::trace#4": {
+    "test send gas: EXTERNAL send 5 messages::trace#2": {
       "test_name": "test send gas: EXTERNAL send 5 messages",
-      "trace_name": "send gas bench setup top up",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: INTERNAL send 32 messages::trace#2": {
+      "test_name": "test send gas: INTERNAL send 32 messages",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: INTERNAL send 1 message::trace#3": {
+      "test_name": "test send gas: INTERNAL send 1 message",
+      "trace_name": "send gas bench setup deploy",
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 44446,
+      "total_forward_fees": 76535,
       "total_fees": 16268
+    },
+    "test send gas: EXTERNAL send 5 messages::trace#5": {
+      "test_name": "test send gas: EXTERNAL send 5 messages",
+      "trace_name": "send gas EXTERNAL send 5",
+      "tx_count": 1,
+      "total_gas_used": 7718,
+      "total_gas_fees": 514534,
+      "total_forward_fees": 0,
+      "total_fees": 986377
     },
     "test send gas: INTERNAL send 2 messages::trace#1": {
       "test_name": "test send gas: INTERNAL send 2 messages",
@@ -525,23 +489,59 @@
       "total_forward_fees": 95202,
       "total_fees": 20601
     },
-    "test send gas: INTERNAL send 2 messages::trace#3": {
-      "test_name": "test send gas: INTERNAL send 2 messages",
-      "trace_name": "send gas bench setup deploy",
+    "test send gas: INTERNAL send 32 messages::trace#4": {
+      "test_name": "test send gas: INTERNAL send 32 messages",
+      "trace_name": "send gas bench setup top up",
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 44446,
       "total_fees": 16268
     },
-    "test send gas: INTERNAL send 32 messages::trace#3": {
-      "test_name": "test send gas: INTERNAL send 32 messages",
+    "test send gas: INTERNAL send 2 messages::trace#5": {
+      "test_name": "test send gas: INTERNAL send 2 messages",
+      "trace_name": "send gas INTERNAL send 2",
+      "tx_count": 1,
+      "total_gas_used": 5421,
+      "total_gas_fees": 361401,
+      "total_forward_fees": 139824,
+      "total_fees": 411711
+    },
+    "test send gas: EXTERNAL send 32 messages::trace#4": {
+      "test_name": "test send gas: EXTERNAL send 32 messages",
+      "trace_name": "send gas bench setup top up",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 44446,
+      "total_fees": 16268
+    },
+    "test send gas: INTERNAL send 1 message::trace#4": {
+      "test_name": "test send gas: INTERNAL send 1 message",
+      "trace_name": "send gas bench setup top up",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 44446,
+      "total_fees": 16268
+    },
+    "test send gas: INTERNAL send 255 messages::trace#3": {
+      "test_name": "test send gas: INTERNAL send 255 messages",
       "trace_name": "send gas bench setup deploy",
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 76535,
       "total_fees": 16268
+    },
+    "test send gas: EXTERNAL send 255 messages::trace#2": {
+      "test_name": "test send gas: EXTERNAL send 255 messages",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
     },
     "test send gas: INTERNAL send 2 messages::trace#4": {
       "test_name": "test send gas: INTERNAL send 2 messages",
@@ -552,9 +552,27 @@
       "total_forward_fees": 44446,
       "total_fees": 16268
     },
-    "test send gas: INTERNAL send 32 messages::trace#1": {
-      "test_name": "test send gas: INTERNAL send 32 messages",
+    "test send gas: EXTERNAL send 5 messages::trace#4": {
+      "test_name": "test send gas: EXTERNAL send 5 messages",
+      "trace_name": "send gas bench setup top up",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 44446,
+      "total_fees": 16268
+    },
+    "test send gas: EXTERNAL malformed message 30 of 32::trace#1": {
+      "test_name": "test send gas: EXTERNAL malformed message 30 of 32",
       "trace_name": "Trace 1",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 95202,
+      "total_fees": 20601
+    },
+    "test send gas: INTERNAL send 1 message::trace#2": {
+      "test_name": "test send gas: INTERNAL send 1 message",
+      "trace_name": "Trace 2",
       "tx_count": 1,
       "total_gas_used": 309,
       "total_gas_fees": 20601,
@@ -570,32 +588,14 @@
       "total_forward_fees": 44446,
       "total_fees": 16268
     },
-    "test send gas: INTERNAL send 1 message::trace#2": {
-      "test_name": "test send gas: INTERNAL send 1 message",
-      "trace_name": "Trace 2",
+    "test send gas: EXTERNAL send 2 messages::trace#3": {
+      "test_name": "test send gas: EXTERNAL send 2 messages",
+      "trace_name": "send gas bench setup deploy",
       "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: INTERNAL send 5 messages::trace#1": {
-      "test_name": "test send gas: INTERNAL send 5 messages",
-      "trace_name": "Trace 1",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 95202,
-      "total_fees": 20601
-    },
-    "test send gas: INTERNAL send 255 messages::trace#5": {
-      "test_name": "test send gas: INTERNAL send 255 messages",
-      "trace_name": "send gas INTERNAL send 255",
-      "tx_count": 1,
-      "total_gas_used": 184172,
-      "total_gas_fees": 12278135,
-      "total_forward_fees": 7803350,
-      "total_fees": 18692660
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 76535,
+      "total_fees": 16268
     }
   }
 }

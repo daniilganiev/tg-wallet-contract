@@ -17,6 +17,9 @@ import "@contracts/WalletTg/revisions"
     Migration should commit only on successful messages that reach Storage.load().
 */
 
+const MIGRATION_TG_USER_ID = 580 as uint64
+const MIGRATION_VALID_TG_SECRET_TAG = 0x1234567890 as uint128
+
 struct MigrationFixture {
     wallet: WalletTrampoline
     deployer: Treasury
@@ -325,4 +328,71 @@ get fun `test migration: chained wallet message migrates both accounts`() {
     expect(wallet2.revision()).toEqual(Revision.Rev01_AddFlagX);
     expect(wallet1.flagX()).toEqual(false);
     expect(wallet2.flagX()).toEqual(true);
+}
+
+get fun `test migration: rev01 flagX survives rev02 Telegram user id migration`() {
+    val deployer = testing.treasury("migration-rev02-deployer");
+    val keyPair = crypto.generateKeyPair();
+
+    // Start from rev00 storage and code; Telegram user id does not exist yet.
+    setWalletBytecodeInConfig(Revision.Rev00_Initial);
+    val wallet = deployRev00Wallet(
+        keyPair,
+        deployer,
+        "setup deploy rev00 WalletTg for rev02 migration",
+    );
+    expect(wallet.revision()).toEqual(Revision.Rev00_Initial);
+    expect(activeWalletCodeHasMethod("my_tg_user_id")).toBeFalse();
+
+    // Rev01 code still does not know AssignTgUserId, and the failed request must not migrate C4.
+    setWalletBytecodeInConfig(Revision.Rev01_AddFlagX);
+    expect(activeWalletCodeHasMethod("my_tg_user_id")).toBeFalse();
+    val unknownTgSet = wallet.requestExternal(
+        prepareAssignTgUserIdE(
+            keyPair,
+            seqnoHeader(0),
+            MIGRATION_TG_USER_ID,
+            MIGRATION_VALID_TG_SECRET_TAG,
+        ),
+    );
+    expect(unknownTgSet).toBeNotAccepted();
+    expect(unknownTgSet).toHaveExternalVmExitCode(Errors.InvalidOpcode);
+    expect(wallet.revision()).toEqual(Revision.Rev00_Initial);
+    expect(wallet.seqno()).toEqual(0);
+
+    // A valid rev01 AssignFlagX request migrates from rev00 to rev01 and stores flagX=true.
+    val assignFlagX = wallet.requestExternal(
+        prepareAssignFlagXE(
+            keyPair,
+            seqnoHeader(0),
+            true,
+        ),
+    );
+    expect(assignFlagX).toBeAccepted();
+    val flagXTrace = assignFlagX.unwrap();
+    flagXTrace.giveName("migrate rev00 to rev01 via EXTERNAL assign flagX=true");
+    expect(flagXTrace).toHaveTx({ exitCode: 0 });
+    expect(wallet.revision()).toEqual(Revision.Rev01_AddFlagX);
+    expect(wallet.flagX()).toEqual(true);
+    expect(wallet.seqno()).toEqual(1);
+
+    // Rev02 adds Telegram user id; setting it must preserve the rev01 flagX value.
+    setWalletBytecodeInConfig(Revision.Rev02_TgUserId);
+    expect(activeWalletCodeHasMethod("my_tg_user_id")).toBeTrue();
+    val setTgUserId = wallet.requestExternal(
+        prepareAssignTgUserIdE(
+            keyPair,
+            seqnoHeader(1),
+            MIGRATION_TG_USER_ID,
+            MIGRATION_VALID_TG_SECRET_TAG,
+        ),
+    );
+    expect(setTgUserId).toBeAccepted();
+    val tgUserIdTrace = setTgUserId.unwrap();
+    tgUserIdTrace.giveName("migrate rev01 to rev02 via EXTERNAL assign Telegram user id");
+    expect(tgUserIdTrace).toHaveTx({ exitCode: 0 });
+
+    expect(wallet.revision()).toEqual(Revision.Rev02_TgUserId);
+    expect(wallet.flagX()).toEqual(true);
+    expect(wallet.myTgUserId()).toEqual(MIGRATION_TG_USER_ID);
 }

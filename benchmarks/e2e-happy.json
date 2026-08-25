@@ -1,33 +1,6 @@
 {
-  "timestamp": 1787836659,
+  "timestamp": 1787836681,
   "opcodes": {
-    "0xdbef47ea": {
-      "min_gas": 3835,
-      "max_gas": 3835,
-      "avg_gas": 3835,
-      "samples": 1,
-      "all_values": [
-        3835
-      ]
-    },
-    "0x3c79c5b6": {
-      "min_gas": 26403,
-      "max_gas": 26403,
-      "avg_gas": 26403,
-      "samples": 1,
-      "all_values": [
-        26403
-      ]
-    },
-    "0xf4c5e845": {
-      "min_gas": 4202,
-      "max_gas": 4202,
-      "avg_gas": 4202,
-      "samples": 1,
-      "all_values": [
-        4202
-      ]
-    },
     "0x2010f1df": {
       "min_gas": 5085,
       "max_gas": 5085,
@@ -36,20 +9,56 @@
       "all_values": [
         5085
       ]
+    },
+    "0x3c79c5b6": {
+      "min_gas": 26661,
+      "max_gas": 26661,
+      "avg_gas": 26661,
+      "samples": 1,
+      "all_values": [
+        26661
+      ]
+    },
+    "0xdbef47ea": {
+      "min_gas": 4185,
+      "max_gas": 4185,
+      "avg_gas": 4185,
+      "samples": 1,
+      "all_values": [
+        4185
+      ]
+    },
+    "0xbb091bcb": {
+      "min_gas": 4311,
+      "max_gas": 4311,
+      "avg_gas": 4311,
+      "samples": 1,
+      "all_values": [
+        4311
+      ]
     }
   },
   "trace_chains": {
-    "test e2e full chain: EXTERNAL send 1 message::trace#2": {
-      "test_name": "test e2e full chain: EXTERNAL send 1 message",
-      "trace_name": "Trace 2",
+    "test e2e full chain: INTERNAL send 32 messages::trace#3": {
+      "test_name": "test e2e full chain: INTERNAL send 32 messages",
+      "trace_name": "e2e setup deploy WalletTg",
       "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 91291,
-      "total_fees": 20601
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 76535,
+      "total_fees": 16268
     },
-    "test e2e full chain: INTERNAL change key::trace#1": {
+    "test e2e full chain: INTERNAL change key::trace#5": {
       "test_name": "test e2e full chain: INTERNAL change key",
+      "trace_name": "e2e full-chain INTERNAL change key",
+      "tx_count": 1,
+      "total_gas_used": 4311,
+      "total_gas_fees": 287401,
+      "total_forward_fees": 115913,
+      "total_fees": 287401
+    },
+    "test e2e full chain: EXTERNAL send 1 message::trace#1": {
+      "test_name": "test e2e full chain: EXTERNAL send 1 message",
       "trace_name": "Trace 1",
       "tx_count": 1,
       "total_gas_used": 309,
@@ -63,26 +72,17 @@
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 76535,
       "total_fees": 16268
     },
-    "test e2e full chain: INTERNAL send 1 message::trace#2": {
+    "test e2e full chain: INTERNAL send 1 message::trace#1": {
       "test_name": "test e2e full chain: INTERNAL send 1 message",
-      "trace_name": "Trace 2",
+      "trace_name": "Trace 1",
       "tx_count": 1,
       "total_gas_used": 309,
       "total_gas_fees": 20601,
       "total_forward_fees": 91291,
       "total_fees": 20601
-    },
-    "test e2e full chain: INTERNAL send 32 messages::trace#3": {
-      "test_name": "test e2e full chain: INTERNAL send 32 messages",
-      "trace_name": "e2e setup deploy WalletTg",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
-      "total_fees": 16268
     },
     "test e2e full chain: EXTERNAL send 1 message::trace#3": {
       "test_name": "test e2e full chain: EXTERNAL send 1 message",
@@ -90,43 +90,25 @@
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 76535,
       "total_fees": 16268
     },
-    "test e2e full chain: MIGRATION chained AssignFlagX::trace#1": {
-      "test_name": "test e2e full chain: MIGRATION chained AssignFlagX",
+    "test e2e full chain: INTERNAL change key::trace#1": {
+      "test_name": "test e2e full chain: INTERNAL change key",
       "trace_name": "Trace 1",
       "tx_count": 1,
       "total_gas_used": 309,
       "total_gas_fees": 20601,
-      "total_forward_fees": 94847,
+      "total_forward_fees": 91291,
       "total_fees": 20601
     },
-    "test e2e full chain: EXTERNAL change key::trace#4": {
-      "test_name": "test e2e full chain: EXTERNAL change key",
-      "trace_name": "e2e setup top up WalletTg",
+    "test e2e full chain: MIGRATION rev01 to rev02 assign Telegram user id::trace#2": {
+      "test_name": "test e2e full chain: MIGRATION rev01 to rev02 assign Telegram user id",
+      "trace_name": "e2e migration setup deploy rev01 WalletTg with flagX=true",
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 44446,
-      "total_fees": 16268
-    },
-    "test e2e full chain: MIGRATION chained AssignFlagX::trace#2": {
-      "test_name": "test e2e full chain: MIGRATION chained AssignFlagX",
-      "trace_name": "e2e migration setup deploy rev00 WalletTg #1",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 76446,
-      "total_fees": 16268
-    },
-    "test e2e full chain: MIGRATION chained AssignFlagX::trace#5": {
-      "test_name": "test e2e full chain: MIGRATION chained AssignFlagX",
-      "trace_name": "e2e migration setup top up rev00 WalletTg #2",
-      "tx_count": 1,
-      "total_gas_used": 244,
-      "total_gas_fees": 16268,
-      "total_forward_fees": 44446,
+      "total_forward_fees": 76490,
       "total_fees": 16268
     },
     "test e2e full chain: EXTERNAL send 1 message::trace#4": {
@@ -138,35 +120,71 @@
       "total_forward_fees": 44446,
       "total_fees": 16268
     },
-    "test e2e full chain: EXTERNAL send 32 messages::trace#5": {
-      "test_name": "test e2e full chain: EXTERNAL send 32 messages",
-      "trace_name": "e2e full-chain EXTERNAL send 32",
-      "tx_count": 33,
-      "total_gas_used": 38981,
-      "total_gas_fees": 2598766,
-      "total_forward_fees": 1564480,
-      "total_fees": 3629242
+    "test e2e full chain: EXTERNAL change key::trace#1": {
+      "test_name": "test e2e full chain: EXTERNAL change key",
+      "trace_name": "Trace 1",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 91291,
+      "total_fees": 20601
     },
-    "test e2e full chain: INTERNAL change key::trace#4": {
-      "test_name": "test e2e full chain: INTERNAL change key",
-      "trace_name": "e2e setup top up WalletTg",
+    "test e2e full chain: INTERNAL send 32 messages::trace#1": {
+      "test_name": "test e2e full chain: INTERNAL send 32 messages",
+      "trace_name": "Trace 1",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 91291,
+      "total_fees": 20601
+    },
+    "test e2e full chain: INTERNAL send 1 message::trace#2": {
+      "test_name": "test e2e full chain: INTERNAL send 1 message",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 91291,
+      "total_fees": 20601
+    },
+    "test e2e full chain: EXTERNAL change key::trace#5": {
+      "test_name": "test e2e full chain: EXTERNAL change key",
+      "trace_name": "e2e full-chain EXTERNAL change key",
+      "tx_count": 1,
+      "total_gas_used": 4018,
+      "total_gas_fees": 267868,
+      "total_forward_fees": 0,
+      "total_fees": 441736
+    },
+    "test e2e full chain: MIGRATION rev01 to rev02 assign Telegram user id::trace#3": {
+      "test_name": "test e2e full chain: MIGRATION rev01 to rev02 assign Telegram user id",
+      "trace_name": "e2e migration setup top up rev01 WalletTg with flagX=true",
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
       "total_forward_fees": 44446,
       "total_fees": 16268
     },
-    "test e2e full chain: EXTERNAL change key::trace#5": {
-      "test_name": "test e2e full chain: EXTERNAL change key",
-      "trace_name": "e2e full-chain EXTERNAL change key",
+    "test e2e full chain: MIGRATION rev01 to rev02 assign Telegram user id::trace#4": {
+      "test_name": "test e2e full chain: MIGRATION rev01 to rev02 assign Telegram user id",
+      "trace_name": "e2e full-chain MIGRATION rev01 to rev02 assign Telegram user id",
       "tx_count": 1,
-      "total_gas_used": 4009,
-      "total_gas_fees": 267268,
+      "total_gas_used": 5467,
+      "total_gas_fees": 364468,
       "total_forward_fees": 0,
-      "total_fees": 441136
+      "total_fees": 493269
     },
-    "test e2e full chain: INTERNAL send 1 message::trace#1": {
-      "test_name": "test e2e full chain: INTERNAL send 1 message",
+    "test e2e full chain: EXTERNAL change key::trace#2": {
+      "test_name": "test e2e full chain: EXTERNAL change key",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 91291,
+      "total_fees": 20601
+    },
+    "test e2e full chain: EXTERNAL send 32 messages::trace#1": {
+      "test_name": "test e2e full chain: EXTERNAL send 32 messages",
       "trace_name": "Trace 1",
       "tx_count": 1,
       "total_gas_used": 309,
@@ -183,35 +201,35 @@
       "total_forward_fees": 44446,
       "total_fees": 16268
     },
-    "test e2e full chain: INTERNAL change key::trace#2": {
-      "test_name": "test e2e full chain: INTERNAL change key",
-      "trace_name": "Trace 2",
+    "test e2e full chain: INTERNAL send 1 message::trace#3": {
+      "test_name": "test e2e full chain: INTERNAL send 1 message",
+      "trace_name": "e2e setup deploy WalletTg",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 76535,
+      "total_fees": 16268
+    },
+    "test e2e full chain: MIGRATION chained AssignFlagX::trace#1": {
+      "test_name": "test e2e full chain: MIGRATION chained AssignFlagX",
+      "trace_name": "Trace 1",
       "tx_count": 1,
       "total_gas_used": 309,
       "total_gas_fees": 20601,
-      "total_forward_fees": 91291,
+      "total_forward_fees": 94847,
       "total_fees": 20601
     },
     "test e2e full chain: EXTERNAL send 1 message::trace#5": {
       "test_name": "test e2e full chain: EXTERNAL send 1 message",
       "trace_name": "e2e full-chain EXTERNAL send 1",
       "tx_count": 2,
-      "total_gas_used": 3965,
-      "total_gas_fees": 264335,
+      "total_gas_used": 4315,
+      "total_gas_fees": 287669,
       "total_forward_fees": 48890,
-      "total_fees": 445847
+      "total_fees": 469181
     },
-    "test e2e full chain: EXTERNAL send 32 messages::trace#1": {
-      "test_name": "test e2e full chain: EXTERNAL send 32 messages",
-      "trace_name": "Trace 1",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 91291,
-      "total_fees": 20601
-    },
-    "test e2e full chain: EXTERNAL send 32 messages::trace#2": {
-      "test_name": "test e2e full chain: EXTERNAL send 32 messages",
+    "test e2e full chain: EXTERNAL send 1 message::trace#2": {
+      "test_name": "test e2e full chain: EXTERNAL send 1 message",
       "trace_name": "Trace 2",
       "tx_count": 1,
       "total_gas_used": 309,
@@ -219,8 +237,17 @@
       "total_forward_fees": 91291,
       "total_fees": 20601
     },
-    "test e2e full chain: INTERNAL send 1 message::trace#4": {
-      "test_name": "test e2e full chain: INTERNAL send 1 message",
+    "test e2e full chain: MIGRATION chained AssignFlagX::trace#2": {
+      "test_name": "test e2e full chain: MIGRATION chained AssignFlagX",
+      "trace_name": "e2e migration setup deploy rev00 WalletTg #1",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 76446,
+      "total_fees": 16268
+    },
+    "test e2e full chain: EXTERNAL change key::trace#4": {
+      "test_name": "test e2e full chain: EXTERNAL change key",
       "trace_name": "e2e setup top up WalletTg",
       "tx_count": 1,
       "total_gas_used": 244,
@@ -234,35 +261,17 @@
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 76535,
       "total_fees": 16268
     },
-    "test e2e full chain: INTERNAL change key::trace#5": {
-      "test_name": "test e2e full chain: INTERNAL change key",
-      "trace_name": "e2e full-chain INTERNAL change key",
-      "tx_count": 1,
-      "total_gas_used": 4202,
-      "total_gas_fees": 280134,
-      "total_forward_fees": 115913,
-      "total_fees": 280134
-    },
-    "test e2e full chain: MIGRATION chained AssignFlagX::trace#4": {
+    "test e2e full chain: MIGRATION chained AssignFlagX::trace#5": {
       "test_name": "test e2e full chain: MIGRATION chained AssignFlagX",
-      "trace_name": "e2e migration setup top up rev00 WalletTg #1",
+      "trace_name": "e2e migration setup top up rev00 WalletTg #2",
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
       "total_forward_fees": 44446,
       "total_fees": 16268
-    },
-    "test e2e full chain: EXTERNAL send 1 message::trace#1": {
-      "test_name": "test e2e full chain: EXTERNAL send 1 message",
-      "trace_name": "Trace 1",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 91291,
-      "total_fees": 20601
     },
     "test e2e full chain: MIGRATION chained AssignFlagX::trace#6": {
       "test_name": "test e2e full chain: MIGRATION chained AssignFlagX",
@@ -273,14 +282,14 @@
       "total_forward_fees": 77380,
       "total_fees": 918424
     },
-    "test e2e full chain: INTERNAL send 32 messages::trace#5": {
-      "test_name": "test e2e full chain: INTERNAL send 32 messages",
-      "trace_name": "e2e full-chain INTERNAL send 32",
-      "tx_count": 33,
-      "total_gas_used": 36291,
-      "total_gas_fees": 2419433,
-      "total_forward_fees": 1729994,
-      "total_fees": 3201641
+    "test e2e full chain: EXTERNAL send 32 messages::trace#2": {
+      "test_name": "test e2e full chain: EXTERNAL send 32 messages",
+      "trace_name": "Trace 2",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 91291,
+      "total_fees": 20601
     },
     "test e2e full chain: EXTERNAL change key::trace#3": {
       "test_name": "test e2e full chain: EXTERNAL change key",
@@ -288,26 +297,35 @@
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 76535,
       "total_fees": 16268
     },
-    "test e2e full chain: INTERNAL send 1 message::trace#5": {
-      "test_name": "test e2e full chain: INTERNAL send 1 message",
-      "trace_name": "e2e full-chain INTERNAL send 1",
-      "tx_count": 2,
-      "total_gas_used": 4144,
-      "total_gas_fees": 276269,
-      "total_forward_fees": 153603,
-      "total_fees": 300713
-    },
-    "test e2e full chain: INTERNAL send 32 messages::trace#1": {
-      "test_name": "test e2e full chain: INTERNAL send 32 messages",
-      "trace_name": "Trace 1",
+    "test e2e full chain: INTERNAL change key::trace#2": {
+      "test_name": "test e2e full chain: INTERNAL change key",
+      "trace_name": "Trace 2",
       "tx_count": 1,
       "total_gas_used": 309,
       "total_gas_fees": 20601,
       "total_forward_fees": 91291,
       "total_fees": 20601
+    },
+    "test e2e full chain: INTERNAL send 32 messages::trace#5": {
+      "test_name": "test e2e full chain: INTERNAL send 32 messages",
+      "trace_name": "e2e full-chain INTERNAL send 32",
+      "tx_count": 33,
+      "total_gas_used": 36549,
+      "total_gas_fees": 2436633,
+      "total_forward_fees": 1729994,
+      "total_fees": 3218841
+    },
+    "test e2e full chain: INTERNAL send 1 message::trace#5": {
+      "test_name": "test e2e full chain: INTERNAL send 1 message",
+      "trace_name": "e2e full-chain INTERNAL send 1",
+      "tx_count": 2,
+      "total_gas_used": 4494,
+      "total_gas_fees": 299602,
+      "total_forward_fees": 153603,
+      "total_fees": 324046
     },
     "test e2e full chain: MIGRATION chained AssignFlagX::trace#3": {
       "test_name": "test e2e full chain: MIGRATION chained AssignFlagX",
@@ -318,36 +336,45 @@
       "total_forward_fees": 76446,
       "total_fees": 16268
     },
-    "test e2e full chain: INTERNAL send 32 messages::trace#2": {
-      "test_name": "test e2e full chain: INTERNAL send 32 messages",
-      "trace_name": "Trace 2",
-      "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 91291,
-      "total_fees": 20601
-    },
-    "test e2e full chain: INTERNAL send 1 message::trace#3": {
-      "test_name": "test e2e full chain: INTERNAL send 1 message",
-      "trace_name": "e2e setup deploy WalletTg",
+    "test e2e full chain: INTERNAL change key::trace#4": {
+      "test_name": "test e2e full chain: INTERNAL change key",
+      "trace_name": "e2e setup top up WalletTg",
       "tx_count": 1,
       "total_gas_used": 244,
       "total_gas_fees": 16268,
-      "total_forward_fees": 76490,
+      "total_forward_fees": 44446,
       "total_fees": 16268
     },
-    "test e2e full chain: EXTERNAL change key::trace#2": {
-      "test_name": "test e2e full chain: EXTERNAL change key",
-      "trace_name": "Trace 2",
+    "test e2e full chain: MIGRATION chained AssignFlagX::trace#4": {
+      "test_name": "test e2e full chain: MIGRATION chained AssignFlagX",
+      "trace_name": "e2e migration setup top up rev00 WalletTg #1",
       "tx_count": 1,
-      "total_gas_used": 309,
-      "total_gas_fees": 20601,
-      "total_forward_fees": 91291,
-      "total_fees": 20601
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 44446,
+      "total_fees": 16268
     },
-    "test e2e full chain: EXTERNAL change key::trace#1": {
-      "test_name": "test e2e full chain: EXTERNAL change key",
-      "trace_name": "Trace 1",
+    "test e2e full chain: EXTERNAL send 32 messages::trace#5": {
+      "test_name": "test e2e full chain: EXTERNAL send 32 messages",
+      "trace_name": "e2e full-chain EXTERNAL send 32",
+      "tx_count": 33,
+      "total_gas_used": 39098,
+      "total_gas_fees": 2606566,
+      "total_forward_fees": 1564480,
+      "total_fees": 3637042
+    },
+    "test e2e full chain: INTERNAL send 1 message::trace#4": {
+      "test_name": "test e2e full chain: INTERNAL send 1 message",
+      "trace_name": "e2e setup top up WalletTg",
+      "tx_count": 1,
+      "total_gas_used": 244,
+      "total_gas_fees": 16268,
+      "total_forward_fees": 44446,
+      "total_fees": 16268
+    },
+    "test e2e full chain: INTERNAL send 32 messages::trace#2": {
+      "test_name": "test e2e full chain: INTERNAL send 32 messages",
+      "trace_name": "Trace 2",
       "tx_count": 1,
       "total_gas_used": 309,
       "total_gas_fees": 20601,
@@ -362,6 +389,15 @@
       "total_gas_fees": 16268,
       "total_forward_fees": 44446,
       "total_fees": 16268
+    },
+    "test e2e full chain: MIGRATION rev01 to rev02 assign Telegram user id::trace#1": {
+      "test_name": "test e2e full chain: MIGRATION rev01 to rev02 assign Telegram user id",
+      "trace_name": "Trace 1",
+      "tx_count": 1,
+      "total_gas_used": 309,
+      "total_gas_fees": 20601,
+      "total_forward_fees": 96980,
+      "total_fees": 20601
     }
   }
 }

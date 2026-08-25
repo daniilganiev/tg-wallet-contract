@@ -25,6 +25,8 @@ const E2E_BENCH_DEPLOY_VALUE = ton("0.05")
 const E2E_BENCH_TOP_UP_VALUE = ton("10")
 const E2E_BENCH_SIGNED_INTERNAL_VALUE = ton("0.1")
 const E2E_BENCH_TRANSFER_VALUE = ton("0.001")
+const E2E_BENCH_TG_USER_ID = 580 as uint64
+const E2E_BENCH_TG_SECRET_TAG = 0x1234567890 as uint128
 
 struct E2EBenchFixture {
     wallet: WalletTrampoline
@@ -103,8 +105,9 @@ fun deployE2EBenchFixture(): E2EBenchFixture {
     topUpResult.giveName("e2e setup top up WalletTg");
     expect(topUpResult).toHaveSuccessfulTx({ to: wallet.address });
 
-    expect(wallet.revision()).toEqual(Revision.Rev01_AddFlagX);
+    expect(wallet.revision()).toEqual(Revision.Rev02_TgUserId);
     expect(wallet.flagX()).toEqual(false);
+    expect(wallet.myTgUserId()).toBeNull();
 
     return E2EBenchFixture { wallet, deployer, receiver, keyPair };
 }
@@ -237,6 +240,25 @@ fun sendE2EBenchChangeKeyInternal(
     expect(fixture.wallet.seqno()).toEqual(seqno + 1);
     expect(fixture.wallet.getPublicKey()).toEqual(newKey.publicKey);
     return result;
+}
+
+fun sendE2EBenchAssignTgUserIdExternal(
+    wallet: WalletTrampoline,
+    keyPair: KeyPair,
+): SendResultList {
+    val seqno = wallet.seqno();
+    val result = wallet.requestExternal(
+        prepareAssignTgUserIdE(
+            keyPair,
+            seqnoHeader(seqno, E2E_BENCH_VALID_UNTIL),
+            E2E_BENCH_TG_USER_ID,
+            E2E_BENCH_TG_SECRET_TAG,
+        ),
+    );
+
+    expect(result).toBeAccepted();
+    expect(wallet.seqno()).toEqual(seqno + 1);
+    return result.unwrap();
 }
 
 fun assertFullChainSendResult(
@@ -383,4 +405,43 @@ get fun `test e2e full chain: MIGRATION chained AssignFlagX`() {
     expect(fixture.wallet2.revision()).toEqual(Revision.Rev01_AddFlagX);
     expect(fixture.wallet1.flagX()).toEqual(false);
     expect(fixture.wallet2.flagX()).toEqual(true);
+}
+
+get fun `test e2e full chain: MIGRATION rev01 to rev02 assign Telegram user id`() {
+    testing.setNow(E2E_BENCH_NOW);
+    setWalletBytecodeInConfig(Revision.Rev01_AddFlagX);
+
+    val keyPair = e2eBenchKeyPair();
+    val deployer = testing.treasury("e2e-rev02-migration-deployer");
+    val wallet = deployRev01Wallet(
+        keyPair,
+        deployer,
+        "e2e migration setup deploy rev01 WalletTg with flagX=true",
+        true,
+        E2E_BENCH_DEPLOY_VALUE,
+    );
+
+    val topUp = wallet.sendAny(
+        deployer.address,
+        createEmptyCell(),
+        { value: E2E_BENCH_TOP_UP_VALUE, bounce: false },
+    );
+    topUp.giveName("e2e migration setup top up rev01 WalletTg with flagX=true");
+    expect(topUp).toHaveSuccessfulTx({
+        from: deployer.address,
+        to: wallet.address,
+    });
+
+    expect(wallet.revision()).toEqual(Revision.Rev01_AddFlagX);
+    expect(wallet.flagX()).toEqual(true);
+
+    setWalletBytecodeInConfig(Revision.Rev02_TgUserId);
+    val result = sendE2EBenchAssignTgUserIdExternal(wallet, keyPair);
+    result.giveName("e2e full-chain MIGRATION rev01 to rev02 assign Telegram user id");
+
+    expect(result.size()).toEqual(1);
+    expect(result).toHaveTx({ exitCode: 0 });
+    expect(wallet.revision()).toEqual(Revision.Rev02_TgUserId);
+    expect(wallet.myTgUserId()).toEqual(E2E_BENCH_TG_USER_ID);
+    expect(wallet.flagX()).toEqual(true);
 }

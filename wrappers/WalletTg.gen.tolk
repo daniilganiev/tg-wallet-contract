@@ -19,7 +19,7 @@ struct WalletTg {
 
 /// Creates a contract wrapper instance from the storage data
 fun WalletTg.fromStorage(
-    storage: Storage | UnionOfOldStorages,
+    storage: Storage | OldStorage_00 | OldStorage_01,
     toShard: AddressShardingOptions? = null,
     workchain: int8 = BASECHAIN,
 ): WalletTg {
@@ -110,4 +110,8 @@ fun WalletTg.getPublicKey(self): uint256 {
 
 fun WalletTg.flagX(self): bool {
     return net.runGetMethod(self.address, "flag_x");
+}
+
+fun WalletTg.myTgUserId(self): uint64? {
+    return net.runGetMethod(self.address, "my_tg_user_id");
 }
