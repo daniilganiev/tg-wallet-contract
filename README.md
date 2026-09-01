@@ -179,6 +179,25 @@ For exact fields and proof format, dive into WalletTg sources.
 Grep `ChangePublicKeyRequest` and `KeyRotationProofPayload`.
 
 
+### Note for client developers
+
+The wallet address does **not** change on rotation — and it must **not** be
+re-derived from the current public key.
+
+An address in TON is the hash of the initial state init, which contains the
+**first** public key. Rotation replaces `storage.publicKey`, but the address
+stays as it was. Deriving an address from the current key after a rotation
+yields a different, never-deployed account.
+
+So a client must:
+
+- persist the wallet address next to the key, not recompute it from the key
+- keep signing with the key that is in the contract **now**
+
+There is no recovery path: the contract keeps no history of previous keys,
+so a lost current key means a lost wallet.
+
+
 ## Contract getters
 
 WalletTg exposes:
